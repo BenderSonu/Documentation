@@ -1,0 +1,23 @@
+A view model is one is specifically build for view.
+it provide the simple interface.
+it is different than domain model.
+
+eg
+
+three classes Customer order product.
+getter setter,
+
+One option for building this UI would be to build the screen directly from the domain
+model. We could retrieve a list of customers from the database and then pass this to the
+view, which could loop over the list of customers and construct the table. When it comes to the final column (Most Recent Order Date), the view would then have to loop over the customer’s Orders collection to work out which order was the most recent.
+
+Summary- Loops and view quite complex.
+
+ the
+view should do is display the resultsof this calculation. We can achieve this by implementing a view model
+
+This model is intentionally simple; it consists mostly of strings.
+The presentation model is designed to
+minimize decision-making in the view.
+
+A  separate  class  that  creates  the  presentation  model  can  be  easily  tested,  programmed, and maintained.
