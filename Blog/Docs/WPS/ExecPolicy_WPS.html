@@ -1,0 +1,201 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Execution Policy</title>
+    <script src="../../Style/knockout-3.0.0.debug.js"></script>
+    <script src="../../Style/knockout-3.0.0.js"></script>
+    <link href="../../Style/bootstrap.css" rel="stylesheet" />
+    <link href="../../Style/bootstrap.min.css" rel="stylesheet" />
+    <script src="../../Style/jquery-2.0.3.min.js"></script>
+    <script src="../../Style/prism.js"></script>
+    <link href="../../Style/style.css" rel="stylesheet" />
+    <link href="../../Style/Highlighter.css" rel="stylesheet" />
+    <script src="../../Style/highlight.pack.js"></script>
+    <link href="../../Style/Code.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container  maindiv">
+        <div class="headerdiv">
+            <h1 class="main">Blog</h1>
+        </div>
+        <div class="size4of6 ">
+            <div class="path panel ">
+                <span></span> <a href="Knockoutjs-Introduction.html">Home</a> > <a href="Knockoutjs-Introduction.html">Introduction</a>
+            </div>
+            <div id="introduction">
+                <h1 class="text-left">Execution Policy</h1>
+            </div>
+            <div>
+                <p>
+                    Windows PowerShell does not allow Scripts, Which are not Signed Because it can be dangerous for the system. Even if you download a script from the internet it would not allow it to run because the scripts would not have its certificates.
+                </p>
+                <p>
+                    To Configure your PowerShell to run scripts you write. Following Steps will Configure your PowerShell for execution policy.
+                </p>
+                <article>
+                    First, Know your Windows PowerShell Current configuration. if your are a total new to <abbr title="Windows PowerShell">WPS</abbr> it would be configred to Restricted as default.
+                    <h3>Step 1:</h3>
+                    On Command Line Write : <br />
+                    <pre><code>Get-ExecutionPolicy</code></pre>
+                    This will check the current system policy setting.<br />
+                    E.g. “Restricted” means you cannot run scripts.<br />
+                    <img src="Images/Exec_Policy_1.png" id="ExecPol_Img1" class="img-thumbnail" />
+                    This command will show you your system Execution Policy.
+                </article>
+            </div>
+            <div id="ExecutionModes">
+                <h3>There are four Execution Modes</h3>
+                <ol start="1">
+                    <li><strong>Restricted: </strong>Default execution policy, does not run scripts, interactive commands only.</li>
+                    <li><strong>AllSigned: </strong>Runs scripts; all scripts and configuration files must be signed by a publisher that you trust; opens you to the risk of running signed (but malicious) scripts, after confirming that you trust the publisher.</li>
+                    <li><strong>RemoteSigned</strong>Local scripts run without signature. Any downloaded scripts need a digital signature, even a UNC path.</li>
+                    <li><strong>UnSigned</strong>No restrictions; all Windows PowerShell scripts can be run.</li>
+                </ol>
+                <p><h4>Option</h4><br /><pre><code>Get-ExecutionPolicy -List</code></pre></p>
+                <table class="table table-condensed">
+                    <tr>
+                        <td><strong>Scope</strong></td>
+                        <td><strong>Execution Policy</strong></td>
+                    </tr>
+                    <tr>
+                        <td class="active">MachinePolicy</td>
+                        <td>Undefined</td>
+                    </tr>
+                    <tr>
+                        <td class="active"> UserPolicy</td>
+                        <td>Undefined</td>
+                    </tr>
+                    <tr>
+                        <td class="active">Process</td>
+                        <td>Undefined</td>
+                    </tr>
+                    <tr>
+                        <td class="active">CurrentUser</td>
+                        <td>RemoteSigned</td>
+                    </tr>
+                    <tr>
+                        <td class="active">Local Machine</td>
+                        <td>AllSigned</td>
+                    </tr>
+                </table>
+                <p>Let's take a quick view of my execution policy.</p>
+                <img src="Images/Exec_Policy_2.png" class="img-thumbnail" />
+            </div>
+
+            
+            <div id="step2">
+                <h3>Step 2:</h3>
+                <p>Now next step is to Set your Execution Policy.</p>
+                <pre><code>Set-ExecutionPolicy –Scope CurrentUser</code></pre>
+                <p class="text-warning">
+                    In Windows Vista and later versions of Windows, to run
+                    commands that change the execution policy for the local
+                    computer (the default), start Windows PowerShell with the
+                    "Run as administrator" option.
+                </p>
+                <img src="Images/Exec_Policy_3.png" class="img-thumbnail" />
+            </div>
+            <div id="step3">
+                <p>As soon as you will enter above command you will be asked for confirmation.</p>
+                A.	Yes<br />
+                B.	No<br />
+                C.	Suspend<br />
+                D.	Default is Yes If you hit enter.<br />
+
+                <img src="Images/Exec_Policy_4.png" class="img-thumbnail" />
+                <p class="alert-success">Now you would have successfully configred your Windows PowerShell Exection Policy with just two quick easy step.</p>
+                <p class="alert-info">Applies to PowerShell Version 2.0, 3.0, 4.0</p>
+            </div>
+        </div>
+        <div class="size2of6 container-fluid">
+            <div>
+                <ul>
+                    <li>
+                        <a class=" down up" href="#">Knockout Js</a>
+                        <ul>
+                            <li style="padding-left: 5px;">
+                                <a class="up down" href="#">Introduction</a>
+                                <ul style="padding-left: 5px;">
+                                    <li><a class="up down" href="#Basicfeatures">Features</a></li>
+                                    <li><a class="up down" href="#moreaddtionalbenefits">Benefits</a></li>
+                                    <li><a class="up down" href="#download">Download/Install</a></li>
+                                    <li><a class="up down" href="#structureofmvvm">MVVM Structure</a></li>
+                                    <li><a class="up down" href="#example">Example</a></li>
+                                </ul>
+                            </li>
+                            <li style="padding-left: 5px;">
+                                <a class="up down" href="Observable.html">Observable</a>
+                                <ul style="padding-left: 5px;">
+                                    <li><a class="up down" href="Observable.html#observable">Observable Introduction</a></li>
+                                    <li><a class="up down" href="Observable.html#observalescomputed">Computed Observable</a></li>
+                                    <li><a class="up down" href="Observable.html#obsevablearray">Observable Array</a></li>
+                                </ul>
+                            </li>
+                            <li style="padding-left: 5px;">
+                                <a class="up down" href="Binding.html">Bindings</a>
+                                <ul style="padding-left: 5px;">
+                                    <li><a class="up down" href="Binding.html#visibal">Visibal Binding</a></li>
+                                    <li><a class="up down" href="Binding.html#text">Text Binding</a></li>
+                                    <li><a class="up down" href="Binding.html#html">Html Binding</a></li>
+                                    <li><a class="up down" href="Binding.html#css">Css Binding</a></li>
+                                </ul>
+                            </li>
+
+                        </ul>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+
+        <p id="back-top" style="display: block;">
+            <a href="#" class="back-to-top">
+                <img src="Images/back-icon.png" height="35" width="35" alt="" />
+            </a>
+        </p>
+    </div>
+
+    <script>
+
+        jQuery(document).ready(function () {
+
+            $('#main-menu').mouseenter(function (event) {
+                event.preventDefault();
+                $(this).find('#sub-menu').slideDown("slow");
+            });
+
+            $('#main-menu').mouseleave(function (event) {
+                event.preventDefault();
+                $(this).find('#sub-menu').slideUp("slow");
+            });
+
+            $(".down").click(function () {
+                $(this).toggle();
+                $(this).prev().toggle();
+                $(this).parent().parent().children().last().toggle();
+            });
+            $(".up").click(function () {
+                $(this).toggle();
+                $(this).next().toggle();
+                $(this).parent().parent().children().last().toggle();
+            });
+            var offset = 220;
+            var duration = 500;
+            window.jQuery(window).scroll(function () {
+                if (window.jQuery(this).scrollTop() > offset) {
+                    window.jQuery('.back-to-top').fadeIn(duration);
+                } else {
+                    window.jQuery('.back-to-top').fadeOut(duration);
+                }
+            });
+            window.jQuery('.back-to-top').click(function (event) {
+                event.preventDefault();
+                window.jQuery('html, body').animate({ scrollTop: 0 }, duration);
+                return false;
+            });
+        });
+    </script>
+
+
+</body>
+</html>

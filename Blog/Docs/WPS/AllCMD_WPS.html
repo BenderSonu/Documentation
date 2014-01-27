@@ -1,0 +1,160 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Commands</title>
+    <script src="../../Style/knockout-3.0.0.debug.js"></script>
+    <script src="../../Style/knockout-3.0.0.js"></script>
+    <link href="../../Style/bootstrap.css" rel="stylesheet" />
+    <link href="../../Style/bootstrap.min.css" rel="stylesheet" />
+    <script src="../../Style/jquery-2.0.3.min.js"></script>
+    <script src="../../Style/prism.js"></script>
+    <link href="../../Style/style.css" rel="stylesheet" />
+    <link href="../../Style/Highlighter.css" rel="stylesheet" />
+    <script src="../../Style/highlight.pack.js"></script>
+    <link href="../../Style/Code.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container  maindiv">
+        <div class="headerdiv">
+            <h1 class="main">Blog</h1>
+        </div>
+        <div class="size4of6 ">
+            <div class="path panel ">
+                <span></span> <a href="#">Home</a> > <a href="#">Introduction</a>
+            </div>
+            <div id="introduction">
+                <h1 class="text-left">Basic Commands</h1>
+            </div>
+            <div id="Mail" class="container-fluid">
+                <div id="CmdTbl">
+                    <p><strong> Various PowerShell Commands</strong></p>
+                    <table class="table table-condensed table-striped">
+                        <tr>
+                            <td><strong>Command</strong></td>
+                            <td><strong>Description</strong></td>
+                        </tr>
+                        <tr>
+                            <td class="active">Get-Help</td>
+                            <td>can use this command to get help with any other command</td>
+                        </tr>
+                        <tr>
+                            <td class="active">Get-Service</td>
+                            <td>The Get-Service command provides a list of all of the services that are installed on the system.</td>
+                        </tr>
+                        <tr>
+                            <td class="active">ConvertTo-HTML</td>
+                            <td>the output from another command into the ConvertTo-HTML command. You will have to use the -Property switch to control which output properties are included in the HTML file and you will have to provide a filename.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="active">Export-CSV</td>
+                            <td>export data from PowerShell into a CSV file that you can open using Microsoft Excel.
+                            <code>Get-Service | Export-CSV c:\service.csv</code></td>
+                        </tr>
+                        <tr>
+                            <td class="active">Select-Object</td>
+                            <td>The Select-Object command allows you to specify specific properties for inclusion. </td>
+                        </tr>
+                        <tr>
+                            <td class="active">Get-EventLog</td>
+                            <td>Write Log for an specific event.</td>
+                        </tr>
+                        <tr>
+                            <td class="active">Get-Process</td>
+                            <td>display a list of all of the system services, you can use the Get-Process command to display a list of all of the processes that are currently running on the system.</td>
+                        </tr>
+                        
+                    </table> 
+                </div>
+            </div>
+        </div>
+        <div class="size2of6 container-fluid">
+            <div>
+                <ul>
+                    <li>
+                        <a class=" down up" href="#">Knockout Js</a>
+                        <ul>
+                            <li style="padding-left: 5px;">
+                                <a class="up down" href="#">Introduction</a>
+                                <ul style="padding-left: 5px;">
+                                    <li><a class="up down">Features</a></li>
+                                    <li><a class="up down">Benefits</a></li>
+                                    <li><a class="up down" href="#download">Download/Install</a></li>
+                                    <li><a class="up down" href="#structureofmvvm">MVVM Structure</a></li>
+                                    <li><a class="up down" href="#example">Example</a></li>
+                                </ul>
+                            </li>
+                            <li style="padding-left: 5px;">
+                                <a class="up down" href="Observable.html">Observable</a>
+                                <ul style="padding-left: 5px;">
+                                    <li><a class="up down" href="Observable.html#observable">Observable Introduction</a></li>
+                                    <li><a class="up down" href="Observable.html#observalescomputed">Computed Observable</a></li>
+                                    <li><a class="up down" href="Observable.html#obsevablearray">Observable Array</a></li>
+                                </ul>
+                            </li>
+                            <li style="padding-left: 5px;">
+                                <a class="up down" href="Binding.html">Bindings</a>
+                                <ul style="padding-left: 5px;">
+                                    <li><a class="up down" href="Binding.html#visibal">Visibal Binding</a></li>
+                                    <li><a class="up down" href="Binding.html#text">Text Binding</a></li>
+                                    <li><a class="up down" href="Binding.html#html">Html Binding</a></li>
+                                    <li><a class="up down" href="Binding.html#css">Css Binding</a></li>
+                                </ul>
+                            </li>
+
+                        </ul>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+
+        <p id="back-top" style="display: block;">
+            <a href="#" class="back-to-top">
+                <img src="Images/back-icon.png" height="35" width="35" alt="" />
+            </a>
+        </p>
+    </div>
+
+    <script>
+
+        jQuery(document).ready(function () {
+
+            $('#main-menu').mouseenter(function (event) {
+                event.preventDefault();
+                $(this).find('#sub-menu').slideDown("slow");
+            });
+
+            $('#main-menu').mouseleave(function (event) {
+                event.preventDefault();
+                $(this).find('#sub-menu').slideUp("slow");
+            });
+
+            $(".down").click(function () {
+                $(this).toggle();
+                $(this).prev().toggle();
+                $(this).parent().parent().children().last().toggle();
+            });
+            $(".up").click(function () {
+                $(this).toggle();
+                $(this).next().toggle();
+                $(this).parent().parent().children().last().toggle();
+            });
+            var offset = 220;
+            var duration = 500;
+            window.jQuery(window).scroll(function () {
+                if (window.jQuery(this).scrollTop() > offset) {
+                    window.jQuery('.back-to-top').fadeIn(duration);
+                } else {
+                    window.jQuery('.back-to-top').fadeOut(duration);
+                }
+            });
+            window.jQuery('.back-to-top').click(function (event) {
+                event.preventDefault();
+                window.jQuery('html, body').animate({ scrollTop: 0 }, duration);
+                return false;
+            });
+        });
+    </script>
+</body>
+</html>

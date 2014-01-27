@@ -1,0 +1,315 @@
+﻿pre.cscode {margin:0; overflow:auto; background-color:#ffffff;}
+.cscode code {font-family:Consolas,"Courier New",Courier,Monospace; font-size:10pt; color:rgb(0, 0, 0);}
+.cscode .key {color:rgb(7, 7, 246);}
+.cscode .com {color:rgb(0, 128, 0);}
+.cscode .str {color:rgb(163, 21, 21);}
+.divcolor {background-color:  rgb(171, 161, 161); }
+.maindiv {
+    background-color: rgb(255, 255, 255);
+    padding: 60px;
+    margin-bottom: 30px;
+    font-size: 17px;
+    font-weight: 200;
+    line-height: 30px;
+    border-radius: 6px;
+    color: inherit;
+    margin-top: 30px;
+}
+.menu {
+    width: 280px;
+    display: inline-block;
+    line-height: 30px;
+    background-color: #dddddd;
+    text-align: left;
+    font-size: 20px;
+    position: fixed;
+}
+.path {
+    font-family: sans-serif;
+    font-size: 20px;
+    padding-bottom: 25px;
+    padding: 5px;
+    color: #878787;
+    margin-top: 10px;
+    background-color: #dddddd
+}
+.bs-sidebar.affix {
+width: 265px;
+position: fixed;
+top:200px;
+}
+.bs-sidenav {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    -webkit-text-shadow: 0 0.5px 0 #fff;
+    text-shadow: 0 0.5px 0 #fff;
+    background-color: #f7f5fa;
+    border-radius: 3px;
+}
+.bs-sidebar .nav > .active > a, .bs-sidebar .nav > .active:hover > a, .bs-sidebar .nav > .active:focus > a {
+font-weight: bold;
+color: #563d7c;
+background-color: transparent;
+border-right: 1px solid #563d7c;
+}
+.col-md-3 {
+width: 25%;
+    position: relative;
+    float: right;
+}
+.bs-sidebar .nav > .active > ul {
+display: block;
+}
+.bs-sidebar .nav .nav {
+display: none;
+margin-bottom: 8px;
+}
+.nav {
+padding-left: 0;
+margin-bottom: 0;
+list-style: none;
+}
+.nav:before, .nav:after {
+display: table;
+content: " ";
+}
+ h1 {
+font-size: 50px;
+font-family: CaviarDreams !important;
+font-weight: normal;
+font-style: normal;
+padding: 0 0 25px 0;
+}
+
+.nav>li {
+position: relative;
+display: block;
+}
+ul {
+display: block;
+list-style-type: disc;
+-webkit-margin-before: 0.5em;
+-webkit-margin-after: 0.5em;
+-webkit-margin-start: 0;
+-webkit-margin-end: 0;
+-webkit-padding-start: 25px;
+}
+.leftside {
+    padding-left: 25px;
+}
+.sidebar {
+padding-left: 16.66667%;
+}
+.size4of6 {
+width: 66.66667%;
+padding: 0 15px;
+float: left;
+position: relative;
+z-index: 500;
+}
+.size2of6 {
+width: 33.33337%;
+padding: 0 15px;
+float: left;
+position: relative;
+z-index: 500;
+padding-left: 50px;
+}
+#footer {
+clear: both;
+font-size: 85%;
+line-height: 160%;
+padding-bottom: 25px;
+}
+.main{
+    font-size: 70px;
+    text-align: center;
+}
+.headerdiv{
+    border-bottom: 1px solid #888888;
+}
+.bottomspace {
+    padding-bottom: 35px;
+}
+.verticalLine {
+    border: 1px solid #8a7f7f;
+ 
+}
+.back-to-top {
+    position: fixed;
+			bottom: 5em;
+			right: 100px;
+    background-color: #ebebeb;
+    background-color: rgba(235, 235, 235, 0.8);
+			font-size: 12px;
+		    display: none;
+}
+
+.back-to-top:hover {
+		    background-color: #878787;
+		    background-color: rgba(135, 135, 135, 0.50);
+		}
+
+.bottom {
+            padding-bottom: 5px;
+        }
+a {
+color: inherit;
+text-decoration: none;
+}
+html {
+font-size: 100%;
+}
+
+p{ text-align: justify;}
+span.blue {
+    font-size: 17px;
+     color: blue;
+    font-family: serif;
+}
+
+pre {
+    white-space: pre;
+    white-space: pre-wrap;
+    -ms-word-wrap: break-word;
+    word-wrap: break-word;
+    font-family: monospace, serif;
+    _font-family: 'courier new', monospace;
+    font-size: 1em;
+    border-radius: 4px;
+    border: 3px solid #ccc;
+    padding: 0;
+    margin: 8px 0;
+}
+div.wrapper {
+	max-width: 795px;
+	margin: 0 auto;
+	padding: 0 10px;
+}
+pre code {
+    display: block;
+    padding: 0.5em;
+    background: #272822;
+    -ms-word-break: normal;
+    word-break: normal;
+    -ms-word-wrap: normal;
+    word-wrap: normal;
+    max-height: 450px;
+    white-space: pre;
+    overflow: auto;
+    color: #DDD;
+}
+
+
+pre .tag,
+pre .tag .title,
+pre .keyword,
+pre .literal,
+pre .change,
+pre .winutils,
+pre .flow,
+pre .lisp .title,
+pre .clojure .built_in,
+pre .nginx .title,
+pre .tex .special {
+	color: #F92672;
+}
+
+
+
+pre code .constant {
+	color: #66D9EF;
+}
+
+pre .class .title {
+	color: white;
+}
+
+pre .attribute,
+pre .symbol,
+pre .symbol .string,
+pre .value,
+pre .regexp {
+	color: #BF79DB;
+}
+
+pre .tag .value,
+pre .string,
+pre .subst,
+pre .title,
+pre .haskell .type,
+pre .preprocessor,
+pre .ruby .class .parent,
+pre .built_in,
+pre .sql .aggregate,
+pre .django .template_tag,
+pre .django .variable,
+pre .smalltalk .class,
+pre .javadoc,
+pre .django .filter .argument,
+pre .smalltalk .localvars,
+pre .smalltalk .array,
+pre .attr_selector,
+pre .pseudo,
+pre .addition,
+pre .stream,
+pre .envvar,
+pre .apache .tag,
+pre .apache .cbracket,
+pre .tex .command,
+pre .prompt {
+	color: #A6E22E;
+}
+
+pre .comment,
+pre .java .annotation,
+pre .python .decorator,
+pre .template_comment,
+pre .pi,
+pre .doctype,
+pre .deletion,
+pre .shebang,
+pre .apache .sqbracket,
+pre .tex .formula {
+	color: #75715E;
+}
+
+pre .keyword,
+pre .literal,
+pre .css .id,
+pre .phpdoc,
+pre .title,
+pre .haskell .type,
+pre .vbscript .built_in,
+pre .sql .aggregate,
+pre .rsl .built_in,
+pre .smalltalk .class,
+pre .diff .header,
+pre .chunk,
+pre .winutils,
+pre .bash .variable,
+pre .apache .tag,
+pre .tex .special,
+pre .request,
+pre .status {
+	font-weight: bold;
+}
+.up .down {
+    font-size: 14px;
+}
+.ulsize  {
+    font-size: 14px;
+}
+.limain{
+    background-color: #c6bdbd;
+    padding: 5px;
+}
+.lisub {
+    background-color: #dddddd;
+}
+
+
+
+

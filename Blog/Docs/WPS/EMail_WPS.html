@@ -1,0 +1,231 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Send E-Mail Through PowerShell</title>
+    <script src="../../Style/knockout-3.0.0.debug.js"></script>
+    <script src="../../Style/knockout-3.0.0.js"></script>
+    <link href="../../Style/bootstrap.css" rel="stylesheet" />
+    <link href="../../Style/bootstrap.min.css" rel="stylesheet" />
+    <script src="../../Style/jquery-2.0.3.min.js"></script>
+    <script src="../../Style/prism.js"></script>
+    <link href="../../Style/style.css" rel="stylesheet" />
+    <link href="../../Style/Highlighter.css" rel="stylesheet" />
+    <script src="../../Style/highlight.pack.js"></script>
+    <link href="../../Style/Code.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container  maindiv">
+        <div class="headerdiv">
+            <h1 class="main">Blog</h1>
+        </div>
+        <div class="size4of6 ">
+            <div class="path panel ">
+                <span></span> <a href="#">Home</a> > <a href="#">Introduction</a>
+            </div>
+            <div id="introduction">
+                <h1 class="text-left">E-Mail</h1>
+            </div>
+            <div id="Mail" class="container-fluid">
+                <div id="SettingMessage">
+                    <p>E-Mail Through PowerShell Script<br/>First lets first setup the "System.Net.Mail.MailMesage" through an object</p>
+                    
+                    Lets Observe the Property of an MailMessage object.<br/>
+                    <table class="table table-condensed">
+                        <tr>
+                            <td><strong>Property</strong></td>
+                            <td><strong>Description</strong></td>
+                        </tr>
+                        <tr>
+                            <td class="active">From</td>
+                            <td>Sender Mail Address</td>
+                        </tr>
+                        <tr>
+                            <td class="active">To</td>
+                            <td>Gets the address collection that contains the recipients of this e-mail message.</td>
+                        </tr>
+                        <tr>
+                            <td class="active">Subject</td>
+                            <td>Gets or sets the subject line for this e-mail message.</td>
+                        </tr>
+                        <tr>
+                            <td class="active">Attachment</td>
+                            <td>Gets the attachment collection used to store data attached to this e-mail message.</td>
+                        </tr>
+                        <tr>
+                            <td class="active">Header</td>
+                            <td>Gets the e-mail headers that are transmitted with this e-mail message. </td>
+                        </tr>
+                        <tr>
+                            <td class="active">Priority</td>
+                            <td>Gets or sets the priority of this e-mail message.</td>
+                        </tr>
+                        <tr>
+                            <td class="active">DiliveryNotificationOptions</td>
+                            <td>Gets or sets the delivery notifications for this e-mail message.</td>
+                        </tr>
+                        <tr>
+                            <td class="active">BodyEncoding</td>
+                            <td>Gets or sets the encoding used to encode the message body.</td>
+                        </tr>
+                        <tr>
+                            <td class="active">BCC</td>
+                            <td>Gets the address collection that contains the blind carbon copy (BCC) recipients for this e-mail message.</td>
+                        </tr>
+                        <tr>
+                            <td class="active">AlternateViews</td>
+                            <td>Gets the attachment collection used to store alternate forms of the message body.</td>
+                        </tr>
+                    </table> 
+                    <p class="alert-info">Attachments uses “System.Net.Mail.Attachments” Class to be specified in the Script.</p><br/>
+
+                    <img src="Images/Mail_WPS_01.png" class="img-thumbnail center-block"/>
+                </div>
+                <div id="Setting_SMTP">
+                    <p><strong>SMTPClient Setup</strong></p>
+                    <p>Allows applications to send e-mail by using the Simple Mail Transfer Protocol (SMTP).</p>
+                    <p class="alert-info">To define a SMTPClient Object We Use “System.Net.Mail.SMTPClient” Class.</p><br/>
+                    <strong>Constructor</strong>
+                    <table class="table table-striped">
+                        <tr>
+                            <td><strong>Name</strong></td>
+                            <td><strong>Description</strong></td>
+                        </tr>
+                        <tr>
+                            <td>SmtpClient()</td>
+                            <td>Initializes a new instance of the SmtpClient class by using configuration file settings. </td>
+                        </tr>
+                        <tr>
+                            <td>SmtpClient(string)</td>
+                            <td>Initializes a new instance of the SmtpClient class that sends e-mail by using the specified SMTP server. </td>
+                        </tr>
+                        <tr>
+                            <td>SmtpClient(String, Int32)</td>
+                            <td>Initializes a new instance of the SmtpClient class that sends e-mail by using the specified SMTP server and port. </td>
+                        </tr>
+                    </table>
+                    <table class="table table-condensed">
+                        <tr>
+                            <td><strong>Property</strong></td>
+                            <td><strong>Description</strong></td>
+                        </tr>
+                        <tr>
+                            <td class="active">Host</td>
+                            <td>Gets or sets the name or IP address of the host used for SMTP transactions.</td>
+                        </tr>
+                        <tr>
+                            <td class="active">Port</td>
+                            <td>Gets or sets the port used for SMTP transactions.</td>
+                        </tr>
+                        <tr>
+                            <td class="active">EnableSsl</td>
+                            <td>Specify whether the SmtpClient uses Secure Sockets Layer (SSL) to encrypt the connection.</td>
+                        </tr>
+                        <tr>
+                            <td class="active">UseDefaultCredentials</td>
+                            <td>Gets or sets a Boolean value that controls whether the DefaultCredentials are sent with requests.</td>
+                        </tr>
+                        <tr>
+                            <td class="active">ClientCertificates</td>
+                            <td>Specify which certificates should be used to establish the Secure Sockets Layer (SSL) connection.</td>
+                        </tr>
+                        <tr>
+                            <td class="active">Credentials</td>
+                            <td>Gets or sets the credentials used to authenticate the sender.</td>
+                        </tr>
+                    </table>
+                    <p>Using SmtpClient Object we can set these above properties.</p>
+                    <pre>Example: Setting Up Gmail for SMTP.<img src="Images/Mail_WPS_02.png" class="center-block" /></pre>
+                </div>
+            </div>
+            
+        </div>
+        <div class="size2of6 container-fluid">
+            <div>
+                <ul>
+                    <li>
+                        <a class=" down up" href="#">Knockout Js</a>
+                        <ul>
+                            <li style="padding-left: 5px;">
+                                <a class="up down" href="#">Introduction</a>
+                                <ul style="padding-left: 5px;">
+                                    <li><a class="up down">Features</a></li>
+                                    <li><a class="up down">Benefits</a></li>
+                                    <li><a class="up down" href="#download">Download/Install</a></li>
+                                    <li><a class="up down" href="#structureofmvvm">MVVM Structure</a></li>
+                                    <li><a class="up down" href="#example">Example</a></li>
+                                </ul>
+                            </li>
+                            <li style="padding-left: 5px;">
+                                <a class="up down" href="Observable.html">Observable</a>
+                                <ul style="padding-left: 5px;">
+                                    <li><a class="up down" href="Observable.html#observable">Observable Introduction</a></li>
+                                    <li><a class="up down" href="Observable.html#observalescomputed">Computed Observable</a></li>
+                                    <li><a class="up down" href="Observable.html#obsevablearray">Observable Array</a></li>
+                                </ul>
+                            </li>
+                            <li style="padding-left: 5px;">
+                                <a class="up down" href="Binding.html">Bindings</a>
+                                <ul style="padding-left: 5px;">
+                                    <li><a class="up down" href="Binding.html#visibal">Visibal Binding</a></li>
+                                    <li><a class="up down" href="Binding.html#text">Text Binding</a></li>
+                                    <li><a class="up down" href="Binding.html#html">Html Binding</a></li>
+                                    <li><a class="up down" href="Binding.html#css">Css Binding</a></li>
+                                </ul>
+                            </li>
+
+                        </ul>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+
+        <p id="back-top" style="display: block;">
+            <a href="#" class="back-to-top">
+                <img src="Images/back-icon.png" height="35" width="35" alt="" />
+            </a>
+        </p>
+    </div>
+
+    <script>
+
+        jQuery(document).ready(function () {
+
+            $('#main-menu').mouseenter(function (event) {
+                event.preventDefault();
+                $(this).find('#sub-menu').slideDown("slow");
+            });
+
+            $('#main-menu').mouseleave(function (event) {
+                event.preventDefault();
+                $(this).find('#sub-menu').slideUp("slow");
+            });
+
+            $(".down").click(function () {
+                $(this).toggle();
+                $(this).prev().toggle();
+                $(this).parent().parent().children().last().toggle();
+            });
+            $(".up").click(function () {
+                $(this).toggle();
+                $(this).next().toggle();
+                $(this).parent().parent().children().last().toggle();
+            });
+            var offset = 220;
+            var duration = 500;
+            window.jQuery(window).scroll(function () {
+                if (window.jQuery(this).scrollTop() > offset) {
+                    window.jQuery('.back-to-top').fadeIn(duration);
+                } else {
+                    window.jQuery('.back-to-top').fadeOut(duration);
+                }
+            });
+            window.jQuery('.back-to-top').click(function (event) {
+                event.preventDefault();
+                window.jQuery('html, body').animate({ scrollTop: 0 }, duration);
+                return false;
+            });
+        });
+    </script>
+</body>
+</html>

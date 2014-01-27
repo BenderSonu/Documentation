@@ -1,0 +1,281 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Task Scheduler</title>
+    <script src="../../Style/knockout-3.0.0.debug.js"></script>
+    <script src="../../Style/knockout-3.0.0.js"></script>
+    <link href="../../Style/bootstrap.css" rel="stylesheet" />
+    <link href="../../Style/bootstrap.min.css" rel="stylesheet" />
+    <script src="../../Style/jquery-2.0.3.min.js"></script>
+    <script src="../../Style/prism.js"></script>
+    <link href="../../Style/style.css" rel="stylesheet" />
+    <link href="../../Style/Highlighter.css" rel="stylesheet" />
+    <script src="../../Style/highlight.pack.js"></script>
+    <link href="../../Style/Code.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container  maindiv">
+        <div class="headerdiv">
+            <h1 class="main">Blog</h1>
+        </div>
+        <div class="size4of6 ">
+            <div class="path panel ">
+                <span></span> <a href="#">Home</a> > <a href="#">Introduction</a>
+            </div>
+            <div id="introduction">
+                <h1 class="text-left">Task Scheduler with PowerShell Scripts </h1>
+            </div>
+            <div id="Mail" class="container-fluid">
+                <div id="SettingMessage">
+                    <p class="lead">The Task Scheduler enables you to automatically perform routine tasks on a chosen computer. The Task Scheduler does this by monitoring whatever criteria you choose to initiate the tasks (referred to as triggers) and then executing the tasks when the criteria is met.</p>
+                    <p><strong>Applies To</strong></p><br />
+                    <article>The Task Scheduler can be used to execute tasks such as starting an application, sending an email message, or showing a message box. Tasks can be scheduled to execute: </article><br/>
+                    <table class="table table-condensed">
+                        <tr>
+                            <td class="active"><small> • A specific system event occurs.<br/>
+                                • At a specific time.<br/>
+                                • At a specific time on a daily schedule.<br/>
+                                • At a specific time on a weekly schedule.<br/>
+                                • At a specific time on a monthly schedule.<br/>
+                                • At a specific time on a monthly day-of-week schedule.<br/>
+                                • When the computer enters an idle state.<br/>
+                                • When the task is registered<br/>
+                                • When the system is booted.<br/>
+                                • When a user logs on.<br/>
+                                • When a Terminal Server session changes state.</small><br/>
+                            </td>
+                        </tr>
+                    </table>
+                    <div>
+                        <p>Here is an Example to add a task in Task Scheduler</p>
+                        <div class="container-fluid">
+                            <strong>Where is this Task Scheduler?</strong><br/>
+                            <img src="Images/TSK_02.png" class="img-thumbnail center-block" />
+                            <p>Control Panel >> Administrative Tools >> Task Scheduler</p>
+                            <p class="alert-info">That will open up an interface of Task Scheduler</p><br/>
+                            <pre class="center-block">Here's How A Task Scheduler interface looks like.<img src="Images/TSK_03.png" class="img-thumbnail center-block" />You can see various option for Tasks: Create, Log, Import & a Task status Panel.</pre>
+                        </div>
+                        <div class="container-fluid" id="CRT_TSK">
+                            <p>Click Create Task On The Top Right Corner of Interface.</p>
+                            <img src="Images/TSK_04.png" class="img-thumbnail center-block" />
+                            <h4 class="header">General</h4>
+                            <table class="table-condensed table-striped">
+                                <tr>
+                                    <td><strong>Fields</strong></td>
+                                    <td><strong>Description</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type Name of Task (User Defined)</td>
+                                </tr>
+                                <tr>
+                                    <td>Location</td>
+                                    <td>Location of Task to be created (System Defined ie. Not Editable)</td>
+                                </tr>
+                                <tr>
+                                    <td>Author</td>
+                                    <td>Current User Logged IN</td>
+                                </tr>
+                                <tr>
+                                    <td>Description</td>
+                                    <td>OPTIONAL: Scripts Description</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Security Options</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>Account</td>
+                                    <td>Defines when running the scripts, user should be logged on or not.</td>
+                                </tr>
+                                <tr>
+                                    <td>Privilege</td>
+                                    <td>Option to Run your script with highest privilege to other application.</td>
+                                </tr>
+                                <tr>
+                                    <td>Configure For</td>
+                                    <td>Operating Systems & Version</td>
+                                </tr>
+                            </table>
+                        </div>
+                            <div id="trigger">
+                            <p> Now Lets Move to Next Tab which is <a href="" class="btn-link">Triggers</a> </p>
+                            <pre>Click New<img src="Images/TSK_06.png" class="img-thumbnail center-block"/></pre>
+                            <p>Add / Edit Trigger Event i.e. When should task scheduler should run your script or program.</p>
+                                <table class="table-condensed table-striped">
+                                    <tr>
+                                        <td><strong>Fields</strong></td>
+                                        <td><strong>Description</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Begin the Task</td>
+                                        <td>When should the task be triggerd (OPTIONS)</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Setting</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td>One Time</td>
+                                        <td>When sould it start.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Daily</td>
+                                        <td>Everyday on defined time.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Weekly</td>
+                                        <td>Event Time Defined (User)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Monthly</td>
+                                        <td>Monthly on defined time.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Advanced Setting</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Repetition of Tasks</td>
+                                        <td>Hourly and 5 mins for Minimum time</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Stop Task</td>
+                                        <td>Duration</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Enable</td>
+                                        <td>Should Trigger be Enabled(CheckBox)</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        <div id="actions">
+                            <h4>Action</h4>
+                            <p>An Action is part of task scheduler in which the specified program is executed and arguments are passed to execute scripts.</p>
+                            <pre>Action of a New Task<img src="Images/TSK_07.png" class="img-thumbnail center-block" />
+                                                               Actions Tab Represents Which Program to run and with what arguments. </pre>
+                            <p>Pass Executable Application in Program/Script</p>
+
+                        </div>
+                        <div id="Conditions">
+                            <h4>Conditions</h4>
+                            <p>Condition Tabs Will Ask you about what should action do when some environments change.</p>
+                            <pre>Condition Tab<img src="Images/TSK_09.png" class="img-thumbnail center-block" />Any Specified condition in which the task sould not run. E.g. AC Power, Idle State etc.</pre>
+                            <p><strong>Three Conditions</strong></p>
+                            <p>1. Idle<br/>
+                                2. Power<br/>
+                                3. Network<br/></p>
+                        </div>
+                        <div id="settingtsk">
+                            <h4>Settings</h4>
+                            <p>
+                                Specify Addition setting that affect the behaviour of the task.
+                            </p>
+                            <pre> Setting Tab <img src="Images/TSK_10.png" class="img-thumbnail center-block" />Rules to be applied on the task being created.</pre>
+                            <p>
+                                Click OK to create task and go back to previous menu.
+                            </p>
+                        </div>
+                        <div id="running">
+                            <h4>Execution</h4>
+                            <p>We can run the task manually. Select the Task from the panel and click run. The Task will run as defined in the script and arguments.</p>
+                            <pre><img src="Images/TSK_11.png" class="img-thumbnail center-block" /></pre>
+                            <pre> Performing Execution<img src="Images/TSK_12.png" class="img-thumbnail center-block" />Now Get Started Create your own Scheduled Task</pre>
+                        </div>
+                        <div id="ref">
+                            <strong>Refrences</strong><br/>
+                            <a class="alert-link" href="http://msdn.microsoft.com/en-us/library/windows/desktop/aa446802(v=vs.85).aspx">About Task Scheduler</a><br/>
+                            <a class="alert-link" href="http://techhead.co/using-task-scheduler-to-run-a-powershell-script/">TechHead</a><br/>
+                        </div>
+                        </div>
+                    </div>
+                   </div>
+
+        </div>
+        <div class="size2of6 container-fluid">
+            <div>
+                <ul>
+                    <li>
+                        <a class=" down up" href="#">Knockout Js</a>
+                        <ul>
+                            <li style="padding-left: 5px;">
+                                <a class="up down" href="#">Introduction</a>
+                                <ul style="padding-left: 5px;">
+                                    <li><a class="up down">Features</a></li>
+                                    <li><a class="up down">Benefits</a></li>
+                                    <li><a class="up down" href="#download">Download/Install</a></li>
+                                    <li><a class="up down" href="#structureofmvvm">MVVM Structure</a></li>
+                                    <li><a class="up down" href="#example">Example</a></li>
+                                </ul>
+                            </li>
+                            <li style="padding-left: 5px;">
+                                <a class="up down" href="Observable.html">Observable</a>
+                                <ul style="padding-left: 5px;">
+                                    <li><a class="up down" href="Observable.html#observable">Observable Introduction</a></li>
+                                    <li><a class="up down" href="Observable.html#observalescomputed">Computed Observable</a></li>
+                                    <li><a class="up down" href="Observable.html#obsevablearray">Observable Array</a></li>
+                                </ul>
+                            </li>
+                            <li style="padding-left: 5px;">
+                                <a class="up down" href="Binding.html">Bindings</a>
+                                <ul style="padding-left: 5px;">
+                                    <li><a class="up down" href="Binding.html#visibal">Visibal Binding</a></li>
+                                    <li><a class="up down" href="Binding.html#text">Text Binding</a></li>
+                                    <li><a class="up down" href="Binding.html#html">Html Binding</a></li>
+                                    <li><a class="up down" href="Binding.html#css">Css Binding</a></li>
+                                </ul>
+                            </li>
+
+                        </ul>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+
+        <p id="back-top" style="display: block;">
+            <a href="#" class="back-to-top">
+                <img src="Images/back-icon.png" height="35" width="35" alt="" />
+            </a>
+        </p>
+    </div>
+
+    <script>
+
+        jQuery(document).ready(function () {
+
+            $('#main-menu').mouseenter(function (event) {
+                event.preventDefault();
+                $(this).find('#sub-menu').slideDown("slow");
+            });
+
+            $('#main-menu').mouseleave(function (event) {
+                event.preventDefault();
+                $(this).find('#sub-menu').slideUp("slow");
+            });
+
+            $(".down").click(function () {
+                $(this).toggle();
+                $(this).prev().toggle();
+                $(this).parent().parent().children().last().toggle();
+            });
+            $(".up").click(function () {
+                $(this).toggle();
+                $(this).next().toggle();
+                $(this).parent().parent().children().last().toggle();
+            });
+            var offset = 220;
+            var duration = 500;
+            window.jQuery(window).scroll(function () {
+                if (window.jQuery(this).scrollTop() > offset) {
+                    window.jQuery('.back-to-top').fadeIn(duration);
+                } else {
+                    window.jQuery('.back-to-top').fadeOut(duration);
+                }
+            });
+            window.jQuery('.back-to-top').click(function (event) {
+                event.preventDefault();
+                window.jQuery('html, body').animate({ scrollTop: 0 }, duration);
+                return false;
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,148 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Login Form</title>
+    <script src="../../../Style/knockout-3.0.0.debug.js"></script>
+    <script src="../../../Style/knockout-3.0.0.js"></script>
+    <link href="../../../Style/bootstrap.css" rel="stylesheet" />
+    <link href="../../../Style/bootstrap.min.css" rel="stylesheet" />
+    <script src="../../../Style/jquery-2.0.3.min.js"></script>
+    <script src="../../../Style/prism.js"></script>
+    <link href="../../../Style/style.css" rel="stylesheet" />
+    <link href="../../../Style/Highlighter.css" rel="stylesheet" />
+    <script src="../../../Style/highlight.pack.js"></script>
+    <link href="../../../Style/Code.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container  maindiv">
+        <div class="headerdiv">
+            <h1 class="main">Blog</h1>
+        </div>
+        <div class="size4of6 ">
+            <div class="path panel ">
+                <span></span> <a href="#">Home</a> > <a href="#">Introduction</a>
+            </div>
+            <div id="introduction">
+                <h1 class="text-left">Dto API Response</h1>
+            </div>
+            <div id="MemberLine">
+                <strong>Web API Response Base</strong>
+                <p id="namespace">Sanelib.Dto.ApiResponses</p>
+                <p>Base class of the response of the system is WebAPIResonse.</p>
+                <p>Methods and Property</p>
+                <table class="table-condensed table-striped" id="member">
+                    <tr>
+                        <th>Scope</th>
+                        <th>Type</th>
+                        <th>Variable Name</th>
+                        <th>Methods</th>
+
+                    </tr>
+                    <tr>
+                        <td>public</td>
+                        <td>String</td>
+                        <td>Uri</td>
+                        <td>get; set;</td>
+
+                    </tr>
+                    <tr>
+                        <td>public</td>
+                        <td>bool</td>
+                        <td>RedirectRequired</td>
+                        <td>get; set;</td>
+                    </tr>
+                </table>
+                <p class="lead"> This class has two metohds Create and ToString, the Create method returns a new WebAPI ResponseBase to the API's (Response) which then used to redirect pages append headers. and ToString is the same overridden methos just here its Uri and Redirection.</p>
+                <div>Know About Interface of Web API<a href="Interfaces.html">Click Here</a></div>
+            </div>
+        </div>
+        <div class="size2of6 container-fluid">
+            <div>
+                <ul>
+                    <li>
+                        <a class=" down up" href="#">Knockout Js</a>
+                        <ul>
+                            <li style="padding-left: 5px;">
+                                <a class="up down" href="#">Introduction</a>
+                                <ul style="padding-left: 5px;">
+                                    <li><a class="up down">Features</a></li>
+                                    <li><a class="up down">Benefits</a></li>
+                                    <li><a class="up down" href="#download">Download/Install</a></li>
+                                    <li><a class="up down" href="#structureofmvvm">MVVM Structure</a></li>
+                                    <li><a class="up down" href="#example">Example</a></li>
+                                </ul>
+                            </li>
+                            <li style="padding-left: 5px;">
+                                <a class="up down" href="../WebAPIRequest/Observable.html">Observable</a>
+                                <ul style="padding-left: 5px;">
+                                    <li><a class="up down" href="../WebAPIRequest/Observable.html#observable">Observable Introduction</a></li>
+                                    <li><a class="up down" href="../WebAPIRequest/Observable.html#observalescomputed">Computed Observable</a></li>
+                                    <li><a class="up down" href="../WebAPIRequest/Observable.html#obsevablearray">Observable Array</a></li>
+                                </ul>
+                            </li>
+                            <li style="padding-left: 5px;">
+                                <a class="up down" href="../WebAPIRequest/Binding.html">Bindings</a>
+                                <ul style="padding-left: 5px;">
+                                    <li><a class="up down" href="../WebAPIRequest/Binding.html#visibal">Visibal Binding</a></li>
+                                    <li><a class="up down" href="../WebAPIRequest/Binding.html#text">Text Binding</a></li>
+                                    <li><a class="up down" href="../WebAPIRequest/Binding.html#html">Html Binding</a></li>
+                                    <li><a class="up down" href="../WebAPIRequest/Binding.html#css">Css Binding</a></li>
+                                </ul>
+                            </li>
+
+                        </ul>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+
+        <p id="back-top" style="display: block;">
+            <a href="#" class="back-to-top">
+                <img src="../WebAPIRequest/Images/back-icon.png" height="35" width="35" alt="" />
+            </a>
+        </p>
+    </div>
+
+    <script>
+
+        jQuery(document).ready(function () {
+
+            $('#main-menu').mouseenter(function (event) {
+                event.preventDefault();
+                $(this).find('#sub-menu').slideDown("slow");
+            });
+
+            $('#main-menu').mouseleave(function (event) {
+                event.preventDefault();
+                $(this).find('#sub-menu').slideUp("slow");
+            });
+
+            $(".down").click(function () {
+                $(this).toggle();
+                $(this).prev().toggle();
+                $(this).parent().parent().children().last().toggle();
+            });
+            $(".up").click(function () {
+                $(this).toggle();
+                $(this).next().toggle();
+                $(this).parent().parent().children().last().toggle();
+            });
+            var offset = 220;
+            var duration = 500;
+            window.jQuery(window).scroll(function () {
+                if (window.jQuery(this).scrollTop() > offset) {
+                    window.jQuery('.back-to-top').fadeIn(duration);
+                } else {
+                    window.jQuery('.back-to-top').fadeOut(duration);
+                }
+            });
+            window.jQuery('.back-to-top').click(function (event) {
+                event.preventDefault();
+                window.jQuery('html, body').animate({ scrollTop: 0 }, duration);
+                return false;
+            });
+        });
+    </script>
+</body>
+</html>
