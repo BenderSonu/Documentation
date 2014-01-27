@@ -1,0 +1,150 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>API</title>
+    <script src="/Style/knockout-3.0.0.debug.js"></script>
+    <script src="/Style/knockout-3.0.0.js"></script>
+    <link href="/Style/bootstrap.css" rel="stylesheet" />
+    <link href="/Style/bootstrap.min.css" rel="stylesheet" />
+    <script src="/Style/jquery-2.0.3.min.js"></script>
+    <script src="/Style/prism.js"></script>
+    <link href="/Style/style.css" rel="stylesheet" />
+    <link href="/Style/Highlighter.css" rel="stylesheet" />
+    <script src="/Style/highlight.pack.js"></script>
+    <link href="/Style/Code.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container  maindiv">
+        <div class="headerdiv">
+            <h1 class="main">Blog</h1>
+        </div>
+        <div class="size4of6 ">
+            <div class="path panel ">
+                <span></span> <a href="#">Home</a> > <a href="#">Introduction</a>
+            </div>
+            <div id="introduction">
+                <h1 class="text-left">Smart API Controller</h1>
+                <h4>ControllerApis</h4>
+            </div>
+            <div>
+                <p>The Smart API controller in the system inherits APIController from the "System.Web.Http.APIController"</p>
+                <br/>
+                <code>public class SmartApiController : <a href="APIController.html" class="btn-link">ApiController</a></code>
+                <article>
+                    SmartApiController uses <a href="../Services/IUserSession.html">IUserSession</a> for getting current user and gets Login Method for session and Logout Method to clear the current session.
+                    Also it uses IMappingEngine from AutoMapper package to perform some mapping based on configuration.
+
+                </article>
+                <h3>Constructor Of SmartApiController</h3>
+                <p>The constructor is used with parameter of "IUserSession" and "IMappingEngine Configuration"<br/>
+                    The constructor gets the value from both the interfaces. </p>
+                <code>public SmartApiController(IUserSession userSession, IMappingEngine mappingEngine)<br/>{<br/>UserSession = userSession;<br/>MappingEngine = mappingEngine;<br/>}</code>
+                <p>
+                    Methods In SmartAPIController<br/>
+                    <ol>
+                        <li>
+                            EnsureCurrentUserHas: It validates the current user for the permission from UserSession. If not it will throw "HttpResponseException".
+                        </li>
+                        <li>CurrentUserHas: If Logged in this function will ensure with request that it has permission for that request.</li>
+                        <li>MemberView: Inherited from Views has a GetCurrentUser Method to get Current user with its session.</li>
+                        <li>ExecuteCommand: <code>ExecuteCommand &lt;Tcommand&gt; (TCommand command) where TCommand : ICommand</code><br/> This method validates command when command is issues from client and if the results are valid it return an HttpResponseMessage which contains the validationResult.
+                            If the ValidationResult is correct an instance will be generated for the Authority of the Transaction. An ICommand "IUnitOfWork" Interface to record the status of all command in any class to create an log for the command. Commands are then executed.
+                            Then those instance according to the result are used to commit, rollback the particular instance.</li>
+                        <li>AutoMappedContent<code>AutoMappedContent &lt;tmodel, tviewmodel&gt;(TModel model)</code> Mapping is created between TModel and TViewModel for the common model part, this content is then returned to the calling class.<pre><code>var response = MappingEngine.Map&lt;tmodel, tviewmodel&gt;(model);
+                            return Content(response);</code></pre></li>
+                        <li>Content &lt;T&gt; : The AutoMapper generated an response for which this method will create an new action which would redirect the message to the ApiResponseBase by creating the Response of status code of Http and the response from the mapping engine.</li>
+                    </ol>
+                    
+                </p>
+            </div>
+        </div>
+        <div class="size2of6 container-fluid">
+            <div>
+                <ul>
+                    <li>
+                        <a class=" down up" href="#">Knockout Js</a>
+                        <ul>
+                            <li style="padding-left: 5px;">
+                                <a class="up down" href="#">Introduction</a>
+                                <ul style="padding-left: 5px;">
+                                    <li><a class="up down">Features</a></li>
+                                    <li><a class="up down">Benefits</a></li>
+                                    <li><a class="up down" href="#download">Download/Install</a></li>
+                                    <li><a class="up down" href="#structureofmvvm">MVVM Structure</a></li>
+                                    <li><a class="up down" href="#example">Example</a></li>
+                                </ul>
+                            </li>
+                            <li style="padding-left: 5px;">
+                                <a class="up down" href="../../Dto/WebAPIRequest/Observable.html">Observable</a>
+                                <ul style="padding-left: 5px;">
+                                    <li><a class="up down" href="../../Dto/WebAPIRequest/Observable.html#observable">Observable Introduction</a></li>
+                                    <li><a class="up down" href="../../Dto/WebAPIRequest/Observable.html#observalescomputed">Computed Observable</a></li>
+                                    <li><a class="up down" href="../../Dto/WebAPIRequest/Observable.html#obsevablearray">Observable Array</a></li>
+                                </ul>
+                            </li>
+                            <li style="padding-left: 5px;">
+                                <a class="up down" href="../../Dto/WebAPIRequest/Binding.html">Bindings</a>
+                                <ul style="padding-left: 5px;">
+                                    <li><a class="up down" href="../../Dto/WebAPIRequest/Binding.html#visibal">Visibal Binding</a></li>
+                                    <li><a class="up down" href="../../Dto/WebAPIRequest/Binding.html#text">Text Binding</a></li>
+                                    <li><a class="up down" href="../../Dto/WebAPIRequest/Binding.html#html">Html Binding</a></li>
+                                    <li><a class="up down" href="../../Dto/WebAPIRequest/Binding.html#css">Css Binding</a></li>
+                                </ul>
+                            </li>
+
+                        </ul>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+
+        <p id="back-top" style="display: block;">
+            <a href="#" class="back-to-top">
+                <img src="../../Dto/WebAPIRequest/Images/back-icon.png" height="35" width="35" alt="" />
+            </a>
+        </p>
+    </div>
+
+    <script>
+
+        jQuery(document).ready(function () {
+
+            $('#main-menu').mouseenter(function (event) {
+                event.preventDefault();
+                $(this).find('#sub-menu').slideDown("slow");
+            });
+
+            $('#main-menu').mouseleave(function (event) {
+                event.preventDefault();
+                $(this).find('#sub-menu').slideUp("slow");
+            });
+
+            $(".down").click(function () {
+                $(this).toggle();
+                $(this).prev().toggle();
+                $(this).parent().parent().children().last().toggle();
+            });
+            $(".up").click(function () {
+                $(this).toggle();
+                $(this).next().toggle();
+                $(this).parent().parent().children().last().toggle();
+            });
+            var offset = 220;
+            var duration = 500;
+            window.jQuery(window).scroll(function () {
+                if (window.jQuery(this).scrollTop() > offset) {
+                    window.jQuery('.back-to-top').fadeIn(duration);
+                } else {
+                    window.jQuery('.back-to-top').fadeOut(duration);
+                }
+            });
+            window.jQuery('.back-to-top').click(function (event) {
+                event.preventDefault();
+                window.jQuery('html, body').animate({ scrollTop: 0 }, duration);
+                return false;
+            });
+        });
+    </script>
+</body>
+</html>
