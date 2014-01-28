@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C79713A6-EC57-43BB-A557-53E2087035A5}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Common</RootNamespace>
+    <AssemblyName>Common</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.5.5631.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\DocumentFormat.OpenXml.2.5\lib\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.5.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Sanelib, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Sanelib.1.0.1.11\lib\net45\Sanelib.dll</HintPath>
+    </Reference>
+    <Reference Include="Sanelib.DataOperation, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Sanelib.1.0.1.11\lib\net45\Sanelib.DataOperation.dll</HintPath>
+    </Reference>
+    <Reference Include="Sanelib.DataView, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Sanelib.1.0.1.11\lib\net45\Sanelib.DataView.dll</HintPath>
+    </Reference>
+    <Reference Include="Sanelib.Dto, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Sanelib.1.0.1.11\lib\net45\Sanelib.Dto.dll</HintPath>
+    </Reference>
+    <Reference Include="Sanelib.OpenXml, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Sanelib.1.0.1.11\lib\net45\Sanelib.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="StructureMap, Version=2.6.4.0, Culture=neutral, PublicKeyToken=e60ad81abae3c223, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\structuremap.2.6.4.1\lib\net40\StructureMap.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.XML" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\CommonAssemblyInfo.cs">
+      <Link>CommonAssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="Commands\AuthorizationCommands\ChangePassword.cs" />
+    <Compile Include="Commands\AuthorizationCommands\ResetPassword.cs" />
+    <Compile Include="Commands\MemberCommands\EditMember.cs" />
+    <Compile Include="Commands\MemberCommands\MemberNotification.cs" />
+    <Compile Include="Commands\MemberCommands\RegisterMemberCard.cs" />
+    <Compile Include="Commands\ReceivedFileCommands\UpdateReceiveFileEndTime.cs" />
+    <Compile Include="Enumerations\AlertStatus.cs" />
+    <Compile Include="Enumerations\EntityType.cs" />
+    <Compile Include="Enumerations\HolidayType.cs" />
+    <Compile Include="Enumerations\Permission.cs" />
+    <Compile Include="Enumerations\Role.cs" />
+    <Compile Include="Events\HealthEvents\HealthDataAdded.cs" />
+    <Compile Include="Commands\MemberCommands\DeleteMember.cs" />
+    <Compile Include="Commands\MemberCommands\UpdateMemberNotification.cs" />
+    <Compile Include="Commands\MemberCommands\SaveMember.cs" />
+    <Compile Include="Commands\CommandCoordinator.cs" />
+    <Compile Include="Commands\ICommandRecorder.cs" />
+    <Compile Include="Commands\TrackLogsCommands\AddTrackLog.cs" />
+    <Compile Include="Events\EventCoordinator.cs" />
+    <Compile Include="Events\MemberEvents\MemberRegistration.cs" />
+    <Compile Include="Events\MemberEvents\UserCompletedLogOut.cs" />
+    <Compile Include="Events\MemberEvents\PasswordRecovered.cs" />
+    <Compile Include="Commands\ReceivedFileCommands\AddReceiveFileMetaData.cs" />
+    <Compile Include="Events\MemberEvents\UserCompletedLogIn.cs" />
+    <Compile Include="Events\MemberEvents\UserCredentialMismatch.cs" />
+    <Compile Include="Infrastructure\CommonRegistry.cs" />
+    <Compile Include="Infrastructure\DataAccess\IHealthViewRepository.cs" />
+    <Compile Include="Infrastructure\DataAccess\Impl\HealthViewRepository.cs" />
+    <Compile Include="Service\IModelService.cs" />
+    <Compile Include="Service\ICryptographer.cs" />
+    <Compile Include="Service\IDayDescriptionService.cs" />
+    <Compile Include="Service\Impl\Cryptographer.cs" />
+    <Compile Include="Service\Impl\DayDescriptionService.cs" />
+    <Compile Include="Service\Impl\ModelService.cs" />
+    <Compile Include="Service\Model\DayDescription.cs" />
+    <Compile Include="Service\Model\Holiday.cs" />
+    <Compile Include="Views\HealthView.cs" />
+    <Compile Include="Views\MemberView.cs" />
+    <Compile Include="Views\TaskLogView.cs" />
+    <Compile Include="Views\TrackLogView.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Dto\Dto.csproj">
+      <Project>{1542838f-cf76-468e-8d8d-2e65a97c5a46}</Project>
+      <Name>Dto</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
